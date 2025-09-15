@@ -10,15 +10,19 @@
   <h1>Pipeline Playground</h1>
 
   <!-- TODO: Add an input box here so the user can type text -->
-
+<form>
+  <label for="usertext">Type here:</label><br>
+  <input type="text" id="usertext" name="usertext"><br><br>
+</form>
   <!-- TODO: Add a "Run" button to trigger your pipeline -->
-
+<button class="run-button" onclick="run()">Run Code</button>
   <!-- TODO: Add buttons (or some other UI) that let the user add steps 
        like Uppercase, Trim, or Append "!" -->
 
   <!-- TODO: Add an area to display the list of steps added -->
 
   <!-- TODO: Add an area to display the final output -->
+   <p id="output"></p>
 
   <script src="app.js"></script>
 </body>
