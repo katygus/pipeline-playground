@@ -10,3 +10,7 @@ h1, h2 {
 button {
   margin: 0.25rem;
 }
+
+#steps-list {
+  display: none;
+}

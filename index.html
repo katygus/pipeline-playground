@@ -14,15 +14,25 @@
   <label for="usertext">Type here:</label><br>
   <input type="text" id="usertext" name="usertext"><br><br>
 </form>
+
   <!-- TODO: Add a "Run" button to trigger your pipeline -->
-<button class="run-button" onclick="run()">Run Code</button>
+<button class="run-button">Run Pipeline</button><br><br>
+
   <!-- TODO: Add buttons (or some other UI) that let the user add steps 
        like Uppercase, Trim, or Append "!" -->
+<button class="uppercase-button" >Uppercase</button><br><br>
+<button class="trim-button">Trim</button><br><br>
+<button class="append-button">Append "!"</button><br><br>
 
   <!-- TODO: Add an area to display the list of steps added -->
-
+<h2>Steps Added</h2>
+<ul id="steps-list">
+  <li>Convert to Upper Case</li>
+  <li>Trim Excess</li>
+  <li>Add "!"</li>
+</ul>
   <!-- TODO: Add an area to display the final output -->
-   <p id="output"></p>
+   <pre id="output">No result yet.</pre>
 
   <script src="app.js"></script>
 </body>
