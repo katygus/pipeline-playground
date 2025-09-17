@@ -29,6 +29,13 @@ const trimButton = document.querySelector('.trim-button');
 const appendButton = document.querySelector('.append-button');
 // for each button, add event listener with params of "click", function () -> whatever should happen when clicked
 
+//Learned this on educative.io
+//document.getElementById("-idName"-).innerText = "whatever I decide to say here";
+document.getElementById(uppercase-button).addEventListener("click", function(){
+    document.getElementById("output").innerText = //whatever the output of this function is
+})
+
+
 // CLOSURE: when buttons are clicked, corresponding function needs to be added to a pipeline array so they can be run in order
 
 function createPipeline() {
