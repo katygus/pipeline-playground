@@ -5,24 +5,24 @@ let inputText; //global variable to hold the string input by the user
 
 // object to hold transormation methods
 const transformObj = {
-  capitalize: function () {
-    return inputText.toUpperCase();
+  capitalize: function (input) {
+    return input.toUpperCase();
   },
-  trimIt: function () {
-    return inputText.trim();
+  trimIt: function (input) {
+    return input.trim();
   },
-  appendExclamation: function () {
-    const newString = inputText + '!';
+  appendExclamation: function (input) {
+    const newString = input + '!';
     return newString;
   },
-};
+}
+
 // TODO: Write your createPipeline function here
 // - It should let you add step functions
 // - It should let you run them all in order on some input
 
 //STEP 3
-function createPipeline(input) {
-  // input is inputText
+function createPipeline() {
   const stepArr = [];
   return {
     //returns obj with .add(fn) and .run(initialValue)
@@ -30,28 +30,29 @@ function createPipeline(input) {
       //fn is arg of function that was clicked
       stepArr.push(fn); //Event - when button is clicked, add fn to array
     },
-    run: function transformer(initialValue, input) {
-      // recursion (initialValue is the stepArr)
+    run: function transformer(input, array = stepArr) {
+      // recursion (initialValue is the stepArr -> REMOVED)
 
       if (!input) {
         alert(
           `Type something in the form and click the "submit" button.  Then choose how you want to transform your text.`
         ); // conditional to check if there is input to transform
       }
-      if (!initialValue[0]) {
+      if (!array[0]) {
         //base: input array is empty
         return input;
       } else {
         //recursive: reassign input to the result of invoking func at index 0
-        const transformedInput = initialValue[0](input);
-        return transformer(initialValue.slice(1), transformedInput);
+        const transformedInput = array[0](input);
+        
+        return transformer(transformedInput, array.slice(1));
         //return the function with a diff array index and transformed inputText
       }
     },
   };
 }
 
-const myPipeline = createPipeline(...args);
+const myPipeline = createPipeline();
 
 //STEP 1 - when user types in the form and clicks submit, inputText is reassigned to the value of their input string
 const userForm = document.getElementById('userForm');
@@ -59,8 +60,9 @@ const userInput = document.getElementById('userText');
 userForm.addEventListener('submit', function (event) {
   event.preventDefault();
   const formInput = userInput.value;
-  inputText = formInput;
+  inputText = formInput; 
   return inputText;
+    
 });
 
 /*
@@ -76,7 +78,7 @@ trimButton.addEventListener('click', function () {
     myPipeline.add(transformObj.trimIt);
   });
 const appendButton = document.getElementById('append-button');
-  appendButton.addEventListener('click', function () {
+appendButton.addEventListener('click', function () {
     myPipeline.add(transformObj.appendExclamation);
   });
 
@@ -91,7 +93,7 @@ function changeOutput(text) {
 const runButton = document
   .getElementById('run-button')
   .addEventListener('click', function () {
-    changeOutput(myPipeline.run(stepArr, inputText));
+    changeOutput(myPipeline.run(inputText));
   });
 
 // TODO: Wire up the DOM
