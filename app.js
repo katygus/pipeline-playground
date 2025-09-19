@@ -66,19 +66,37 @@ userForm.addEventListener('submit', function (event) {
 });
 
 /*
-Each of these variables checks if button is clicked and, if so, invokes the add method in createPipline
+Each of these variables checks if button is clicked and, if so, adds a description of what will happen to the steps list and invokes the add method in createPipline
 */
 //STEP 2
+let listCounter = 0;
+const stepsList = document.getElementById('steps-list');
 const capButton = document.getElementById('uppercase-button');
+const trimButton = document.getElementById('trim-button'); 
+const appendButton = document.getElementById('append-button');
+
 capButton.addEventListener('click', function () {
+    const addToList = document.createElement('li');
+    addToList.textContent = 'Capitalize the string';
+    stepsList.appendChild(addToList);
+    listCounter++;
     myPipeline.add(transformObj.capitalize);
   });
-const trimButton = document.getElementById('trim-button');
+
 trimButton.addEventListener('click', function () {
+    const addToList = document.createElement('li');
+    addToList.textContent = 'Trim white space';
+    stepsList.appendChild(addToList);
+    listCounter++;
     myPipeline.add(transformObj.trimIt);
   });
-const appendButton = document.getElementById('append-button');
+
+
 appendButton.addEventListener('click', function () {
+    const addToList = document.createElement('li');
+    addToList.textContent =  'Add exlamation point';
+    stepsList.appendChild(addToList);
+    listCounter++;
     myPipeline.add(transformObj.appendExclamation);
   });
 
@@ -88,7 +106,6 @@ function changeOutput(text) {
   preElem.textContent = text;
 }
 
-//MAYBE need to change order for run button
 //STEP 4
 const runButton = document
   .getElementById('run-button')
@@ -96,7 +113,4 @@ const runButton = document
     changeOutput(myPipeline.run(inputText));
   });
 
-// TODO: Wire up the DOM
-// - Grab the input box, buttons, step list, and output
-// - When a transform button is clicked, add that step to the pipeline and show it in the list
-// - When "Run Pipeline" is clicked, run the pipeline on the input value and display the result
+
