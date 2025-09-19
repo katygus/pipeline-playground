@@ -62,3 +62,14 @@ Build a small web page where you can:
 ## Support
 - **Optional drop-ins:** Tue & Thu, 1–2 PM (co-working / Q&A with fellows).
 - You can work solo or pair up — your choice.
+
+## What I learned
+- How to connect JS to HTML and make them interactive
+   - add eventListeners
+      - but don't invoke the function within them
+   - dynamically add text to a webpage
+      - when adding to a list, the createElement func has to be inside each individual eventListener if I need to create a new element for each thing.  Otherwise it just replaces previously created elements
+- The importance of diagramming out all the steps first
+   - Needed a flowchart to figure out what I was missing and where it needed to take place
+   - create clear variable names for each part of the flowchart because it gets really difficult to change them later
+- With closure funcs, remember to assign a new variable name to each new user instance of calling that function

@@ -8,34 +8,31 @@
   </head>
   <body>
     <h1>Pipeline Playground</h1>
+    <div class="input-area">
+      <!-- TODO: Add an input box here so the user can type text -->
+      <form id="userForm">
+        <label for="userText">Enter a word:</label><br />
+        <input type="text" id="userText" name="userText" />
+        <button id="submit-button" type="submit">Submit It</button><br /><br />
+      </form>
 
-    <!-- TODO: Add an input box here so the user can type text -->
-    <form id="userForm">
-      <label for="userText">Type here:</label><br />
-      <input type="text" id="userText" name="userText" />
-      <button type="submit">Submit</button><br /><br />
-    </form>
-
-    <!-- TODO: Add a "Run" button to trigger your pipeline -->
-    <button id="run-button">Run Pipeline</button><br /><br />
-
-    <!-- TODO: Add buttons (or some other UI) that let the user add steps 
-       like Uppercase, Trim, or Append "!" -->
-    <button id="uppercase-button">Uppercase</button><br /><br />
-    <button id="trim-button">Trim</button><br /><br />
-    <button id="append-button">Append "!"</button><br /><br />
-
+      <p class="instructions">Choose as many ways to transform your word as you like.</p>
+      <button id="uppercase-button">Uppercase</button><br /><br />
+      <button id="trim-button">Trim</button><br /><br />
+      <button id="append-button">Append "!"</button><br /><br /><br><br>
+      <p class="run-instructions">Now, transform it!</p>
+      <button id="run-button">Run Pipeline</button><br /><br />
+    </div>
     <!-- TODO: Add an area to display the list of steps added -->
-    <h2>Steps Added</h2>
-    <ul id="steps-list">
-      
-    </ul>
-    <br /><br />
-    <!-- TODO: Add an area to display the final output -->
+    <div class="print-area">
+      <h2>Steps Added</h2>
+      <ul id="steps-list"></ul>
+      <br /><br />
+      <!-- TODO: Add an area to display the final output -->
 
-    <h2>Output</h2>
-    <pre id="output">No result yet.</pre>
-
+      <h2>Output</h2>
+      <pre id="output">No result yet.</pre>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
